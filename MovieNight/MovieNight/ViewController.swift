@@ -11,7 +11,13 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        let request = ShowRequest(type: .tvShow, category: .popular, genre: .comedy, language: .eng, sort: .popularity, pageNumber: 1)
+        
+        request.execute { value in
+            print(value?.results)
+        }
+        
     }
 
 
