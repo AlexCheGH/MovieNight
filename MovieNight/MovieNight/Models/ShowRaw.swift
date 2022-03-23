@@ -8,9 +8,9 @@
 import Foundation
 
 // MARK: - PopularMovies
-class Show: Codable {
+class ShowRaw: Codable {
     let page: Int?
-    let results: [Result]?
+    let results: [ResultRaw]?
     let totalPages, totalResults: Int?
 
     enum CodingKeys: String, CodingKey {
@@ -19,7 +19,7 @@ class Show: Codable {
         case totalResults = "total_results"
     }
 
-    init(page: Int?, results: [Result]?, totalPages: Int?, totalResults: Int?) {
+    init(page: Int?, results: [ResultRaw]?, totalPages: Int?, totalResults: Int?) {
         self.page = page
         self.results = results
         self.totalPages = totalPages

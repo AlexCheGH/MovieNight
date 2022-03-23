@@ -11,7 +11,7 @@ class LinkBuilder {
     
     let networkProtocol = "https://"
     let showDomain = "api.themoviedb.org/3/"
-    let posterDomain = "https://image.tmdb.org/t/p/w500"
+    let posterDomain = "image.tmdb.org/t/p/w500"
     
     private static var apiKey: String {
         get {
