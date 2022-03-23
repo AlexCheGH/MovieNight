@@ -6,17 +6,12 @@
 //
 
 import UIKit
+import Combine
 
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let showManager = ShowManager()
-        showManager.loadShows(type: .tvShow, category: .discover, genre: .crime, language: .eng, sort: .popularity, pageNumber: 1)
-        
-        
-        
     }
 
 

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class MinimizedShow {
+struct MinimizedShow {
     let title: String?
     let description: String?
     var poster: UIImage?
@@ -20,4 +20,3 @@ class MinimizedShow {
     self.poster = poster
     }
 }
-

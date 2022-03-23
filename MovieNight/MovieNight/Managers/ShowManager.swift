@@ -15,8 +15,12 @@ class ShowManager {
     private var networkRequest: ShowRequest?
     private var posterRequest: PosterImageRequest?
 
-    @Published private var shows: [MinimizedShow]?
+    @Published private var shows: [MinimizedShow]? = [MinimizedShow]()
     
+    var currentShows: AnyPublisher<[MinimizedShow]?, Never> {
+        return $shows.map{ $0 }
+        .eraseToAnyPublisher()
+    }
     
     //MARK: - Network calls
        func loadShows(type: ShowType, category: Category, genre: Genres, language: Language, sort: SortType, pageNumber: Int) {
@@ -38,24 +42,25 @@ class ShowManager {
     
     //MARK: - Processing ShowRaw
     private func processRawShows(_ shows: ShowRaw?) {
-        
         shows?.results?.forEach{
             let posterLink = $0.posterPath ?? ""
             let title = $0.name ?? $0.title //name - for tv shows, title - for movies
             let description = $0.overview
             
-            let show = MinimizedShow(title: title,
+             let show = MinimizedShow(title: title,
                             description: description,
                             poster: nil)
     
+            //Once the main network call has completed, we can start init poster image.
             loadImage(posterLink: posterLink) { image in
-                show.poster = image
+                //getting the index of element in the main array
+                guard let index = (self.shows?.firstIndex{ $0.title == show.title }) else { return }
+                if self.shows != nil {
+                    //changing the image from nil to value
+                    self.shows![index].poster = image
+                }
             }
-            
             self.shows?.append(show)
-            
         }
-        
     }
-    
 }
