@@ -39,7 +39,16 @@ class ViewController: UIViewController {
             .receive(on: RunLoop.main)
             .sink(receiveValue: { value in
                 
-                let indexPath = IndexPath(item: 0, section: 0)
+                var indexPath = IndexPath(item: 0, section: 0)
+                self.tableView.reloadRows(at: [indexPath], with: .automatic)
+                
+                indexPath = IndexPath(item: 1, section: 0)
+                self.tableView.reloadRows(at: [indexPath], with: .automatic)
+                
+                indexPath = IndexPath(item: 2, section: 0)
+                self.tableView.reloadRows(at: [indexPath], with: .automatic)
+                
+                indexPath = IndexPath(item: 3, section: 0)
                 self.tableView.reloadRows(at: [indexPath], with: .automatic)
             })
     }
