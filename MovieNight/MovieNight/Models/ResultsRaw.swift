@@ -25,6 +25,7 @@ class ResultRaw: Codable {
     let name: String?
     let originCountry: [String]?
     let originalName: String?
+    let homepage: String?
     
     
     enum CodingKeys: String, CodingKey {
@@ -34,7 +35,7 @@ class ResultRaw: Codable {
         case id, name
         case originalLanguage = "original_language"
         case originalTitle = "original_title"
-        case overview, popularity
+        case overview, popularity, homepage
         case posterPath = "poster_path"
         case releaseDate = "release_date"
         case title, video
@@ -45,7 +46,7 @@ class ResultRaw: Codable {
         case originalName = "original_name"
     }
     
-    init(adult: Bool?, backdropPath: String?, genreIDS: [Int]?, id: Int?, originalLanguage: String?, originalTitle: String?, overview: String?, popularity: Double?, posterPath: String?, releaseDate: String?, title: String?, video: Bool?, voteAverage: Double?, voteCount: Int?, firstAirDate: String?, name: String?, originCountry: [String]?, originalName: String?) {
+    init(adult: Bool?, backdropPath: String?, genreIDS: [Int]?, id: Int?, originalLanguage: String?, originalTitle: String?, overview: String?, popularity: Double?, posterPath: String?, releaseDate: String?, title: String?, video: Bool?, voteAverage: Double?, voteCount: Int?, firstAirDate: String?, name: String?, originCountry: [String]?, originalName: String?, homepage: String?) {
         self.firstAirDate = firstAirDate
         self.adult = adult
         self.backdropPath = backdropPath
@@ -64,5 +65,6 @@ class ResultRaw: Codable {
         self.name = name
         self.originCountry = originCountry
         self.originalName = originalName
+        self.homepage = homepage
     }
 }

@@ -19,7 +19,7 @@
 		50F4575027EA67D900CF9A99 /* LinkBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F4574F27EA67D900CF9A99 /* LinkBuilder.swift */; };
 		A52CBB5027EB13F900AAE018 /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = A52CBB4F27EB13F900AAE018 /* ApiKeys.plist */; };
 		A52CBB5227EB19B600AAE018 /* ShowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52CBB5127EB19B600AAE018 /* ShowManager.swift */; };
-		A52CBB5427EB2CED00AAE018 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52CBB5327EB2CED00AAE018 /* Show.swift */; };
+		A52CBB5427EB2CED00AAE018 /* MinimizedShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A52CBB5327EB2CED00AAE018 /* MinimizedShow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +37,7 @@
 		50F4574F27EA67D900CF9A99 /* LinkBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkBuilder.swift; sourceTree = "<group>"; };
 		A52CBB4F27EB13F900AAE018 /* ApiKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
 		A52CBB5127EB19B600AAE018 /* ShowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowManager.swift; sourceTree = "<group>"; };
-		A52CBB5327EB2CED00AAE018 /* Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
+		A52CBB5327EB2CED00AAE018 /* MinimizedShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinimizedShow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				50F4574427EA5AEC00CF9A99 /* ShowRaw.swift */,
-				A52CBB5327EB2CED00AAE018 /* Show.swift */,
+				A52CBB5327EB2CED00AAE018 /* MinimizedShow.swift */,
 				50F4574A27EA628900CF9A99 /* ResultsRaw.swift */,
 			);
 			path = Models;
@@ -182,7 +182,7 @@
 				50F4574527EA5AEC00CF9A99 /* ShowRaw.swift in Sources */,
 				50F4573227EA57D700CF9A99 /* ViewController.swift in Sources */,
 				50F4575027EA67D900CF9A99 /* LinkBuilder.swift in Sources */,
-				A52CBB5427EB2CED00AAE018 /* Show.swift in Sources */,
+				A52CBB5427EB2CED00AAE018 /* MinimizedShow.swift in Sources */,
 				50F4572E27EA57D700CF9A99 /* AppDelegate.swift in Sources */,
 				50F4573027EA57D700CF9A99 /* SceneDelegate.swift in Sources */,
 			);
