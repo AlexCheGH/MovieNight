@@ -40,16 +40,16 @@ class ShowRequest {
 }
 
 extension ShowRequest: NetworkRequest {
-    typealias ModelType = Show
+    typealias ModelType = ShowRaw
     
-    func decode(_ data: Data) -> Show? {
+    func decode(_ data: Data) -> ShowRaw? {
         let decoder = JSONDecoder()
         let show = try? decoder.decode(ModelType.self, from: data)
         
         return show
     }
     
-    func execute(withCompletion completion: @escaping (Show?) -> Void) {
+    func execute(withCompletion completion: @escaping (ShowRaw?) -> Void) {
         makeRequest(url: url, completion: completion)
     }
 }

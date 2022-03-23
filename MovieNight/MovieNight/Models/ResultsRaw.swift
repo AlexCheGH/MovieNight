@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Result: Codable {
+class ResultRaw: Codable {
     
     // MARK: - Result
     let adult: Bool?

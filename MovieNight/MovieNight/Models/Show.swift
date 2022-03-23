@@ -1,30 +1,29 @@
 //
-//  PopularMovies.swift
+//  Show.swift
 //  MovieNight
 //
-//  Created by Alex Chekushkin on 3/22/22.
+//  Created by Aliaksandr Chekushkin on 3/23/22.
 //
 
 import Foundation
+import UIKit
 
-// MARK: - PopularMovies
-class Show: Codable {
-    let page: Int?
-    let results: [Result]?
-    let totalPages, totalResults: Int?
-
-    enum CodingKeys: String, CodingKey {
-        case page, results
-        case totalPages = "total_pages"
-        case totalResults = "total_results"
-    }
-
-    init(page: Int?, results: [Result]?, totalPages: Int?, totalResults: Int?) {
-        self.page = page
-        self.results = results
-        self.totalPages = totalPages
-        self.totalResults = totalResults
+class Show {
+    let title: String?
+    let description: String?
+    let poster: UIImage?
+    let productionCompany: String?
+    let originCountry: String?
+    let homepage: String?
+    
+    init(title: String? = nil, description: String? = nil, poster: UIImage? = nil, productionCompany: String? = nil, originCountry: String? = nil, homepage: String? = nil) {
+    
+    self.title = title
+    self.description = description
+    self.poster = poster
+    self.productionCompany = productionCompany
+    self.originCountry = originCountry
+    self.homepage = homepage
     }
 }
 
-//Documentation: https://developers.themoviedb.org/3/movies/get-popular-movies
