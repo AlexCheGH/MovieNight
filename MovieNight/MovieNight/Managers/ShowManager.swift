@@ -15,7 +15,7 @@ class ShowManager {
     private var networkRequest: ShowRequest?
     private var posterRequest: PosterImageRequest?
 
-    @Published private var shows: [MinimizedShow]? = [MinimizedShow]()
+    @Published var shows: [MinimizedShow]? = [MinimizedShow]()
     
     var currentShows: AnyPublisher<[MinimizedShow]?, Never> {
         return $shows.map{ $0 }
