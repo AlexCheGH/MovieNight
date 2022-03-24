@@ -27,10 +27,10 @@ class CollectionTabeViewCell: UITableViewCell {
         collectionView.dataSource = self
         
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -54,13 +54,14 @@ extension CollectionTabeViewCell: UICollectionViewDelegate, UICollectionViewData
         let image = model?[indexPath.row].poster
         cell.configureCell(title: title, image: image)
         
-        
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.bounds.width / 2, height: 300)
-       }
+        let width: CGFloat = 200
+        let height: CGFloat = 300
+        return CGSize(width: width, height: height)
+    }
     
     
 }
