@@ -11,6 +11,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet private weak var imageView: UIImageView!
     
+    private var spinner = UIActivityIndicatorView()
     
     static let identifier = "MovieCollectionViewCell"
     static func nib() -> UINib {
@@ -29,11 +30,29 @@ class MovieCollectionViewCell: UICollectionViewCell {
         self.layer.shadowOffset = CGSize(width: 3, height: 3)
         self.layer.shadowRadius = 5
         
-
+        spinner = UIActivityIndicatorView(frame: CGRect(x: imageView.bounds.origin.x,
+                                                            y: imageView.bounds.origin.y,
+                                                            width: imageView.bounds.width,
+                                                            height: imageView.bounds.height))
+        imageView.addSubview(spinner)
+            
     }
     
     func configureCell(title: String?, image: UIImage?) {
-        imageView.image = image
+        spinner = UIActivityIndicatorView(frame: CGRect(x: bounds.origin.x,
+                                                            y: bounds.origin.y,
+                                                            width: bounds.width,
+                                                            height: bounds.height))
+        
+        if image == nil {
+            imageView.isHidden = true
+            self.addSubview(spinner)
+            spinner.startAnimating()
+        } else {
+            imageView.isHidden = false
+            imageView.image = image
+            spinner.stopAnimating()
+        }
     }
 
 }
