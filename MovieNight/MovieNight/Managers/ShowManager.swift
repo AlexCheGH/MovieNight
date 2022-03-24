@@ -55,6 +55,7 @@ class ShowManager {
                     let show = processRawShows(item, image: image)
                     
                     addShows(genre: genre?.getStringName(), show: show, type: type)
+                    print(show.title, show.poster)
                 }
             }
         }
