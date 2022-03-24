@@ -11,7 +11,7 @@ class CollectionTabeViewCell: UITableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var model: [MinimizedShow]? = [MinimizedShow]()
+    var model: [MinimizedShow]?
     
     static let identifier = "CollectionTableViewCell"
     static func nib() -> UINib {
@@ -26,7 +26,6 @@ class CollectionTabeViewCell: UITableViewCell {
         collectionView.delegate = self
         collectionView.dataSource = self
         
-        backgroundColor = .clear
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -34,8 +33,14 @@ class CollectionTabeViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    func configureCell(model: [MinimizedShow]?) {
+        self.model = model
+        collectionView.reloadData()
+    }
+    
 }
-extension CollectionTabeViewCell: UICollectionViewDelegate, UICollectionViewDataSource {
+extension CollectionTabeViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         model?.count ?? 0
@@ -52,5 +57,10 @@ extension CollectionTabeViewCell: UICollectionViewDelegate, UICollectionViewData
         
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: self.bounds.width / 2, height: 300)
+       }
+    
     
 }

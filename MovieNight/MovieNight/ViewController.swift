@@ -12,18 +12,17 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    private let cellHeight: CGFloat = 200
+    private let cellHeight: CGFloat = 300
     
     private let showManager = ShowManager()
     private var showSubscriber: AnyCancellable?
+    private var categorySubscriber: AnyCancellable?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        showManager.loadShows(type: .movie, category: .discover, genre: .fantasy, language: .eng, sort: .popularity, pageNumber: 1)
         
         configureTableView()
-        configureShowSubscriber()
-        
+        configureCategorySubscriber()
         
     }
     
@@ -31,41 +30,27 @@ class ViewController: UIViewController {
         tableView.register(CollectionTabeViewCell.nib(), forCellReuseIdentifier: CollectionTabeViewCell.identifier)
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = .blue
     }
     
-    private func configureShowSubscriber() {
-        showSubscriber = showManager.currentShows
+    private func configureCategorySubscriber() {
+        categorySubscriber = showManager.modelUpdate
             .receive(on: RunLoop.main)
             .sink(receiveValue: { value in
                 
-                var indexPath = IndexPath(item: 0, section: 0)
-                self.tableView.reloadRows(at: [indexPath], with: .automatic)
-                
-                indexPath = IndexPath(item: 1, section: 0)
-                self.tableView.reloadRows(at: [indexPath], with: .automatic)
-                
-                indexPath = IndexPath(item: 2, section: 0)
-                self.tableView.reloadRows(at: [indexPath], with: .automatic)
-                
-                indexPath = IndexPath(item: 3, section: 0)
-                self.tableView.reloadRows(at: [indexPath], with: .automatic)
+                self.tableView.reloadData()
             })
     }
 }
 
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        4
-    }
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CollectionTabeViewCell.identifier, for: indexPath) as! CollectionTabeViewCell
         
-        cell.model = showManager.shows
-        
-        
+        guard let model = showManager.model else { return cell }
+        if (model.count > indexPath.section) {
+            cell.configureCell(model: showManager.model?[indexPath.section].showList)
+        }
         return cell
     }
     
@@ -73,4 +58,20 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         cellHeight
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        guard let numberOfSections = showManager.model?.count else { return 0 }
+        return numberOfSections
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+         1
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        guard let model = showManager.model else { return nil }
+        if (model.count > section) {
+            return model[section].category
+        }
+        return nil
+    }
 }
