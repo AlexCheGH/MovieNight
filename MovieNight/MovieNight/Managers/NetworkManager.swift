@@ -32,7 +32,7 @@ extension NetworkRequest {
 class ShowRequest {
     let url: URL
     
-    init(type: ShowType, category: Category, genre: Genres, language: Language, sort: SortType, pageNumber: Int) {
+    init(type: ShowType, category: Category, genre: Genres?, language: Language, sort: SortType, pageNumber: Int) {
         let link = LinkBuilder().makeLink(type: type, category: category, genre: genre, language: language, sort: sort, pageNumber: pageNumber)
         self.url = URL(string: link)!
     }

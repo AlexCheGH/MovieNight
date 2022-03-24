@@ -87,6 +87,51 @@ enum Genres: String {
     case thriller = "53"
     case war = "10752"
     case western = "37"
+    
+    func getStringName() -> String {
+        
+        switch self {
+        case .action:
+           return "action"
+        case .adventure:
+           return "adventure"
+        case .animation:
+           return "animation"
+        case .comedy:
+           return "comedy"
+        case .crime:
+           return "crime"
+        case .documentary:
+           return "documentary"
+        case .drama:
+           return "drama"
+        case .family:
+           return "family"
+        case .fantasy:
+           return "fantasy"
+        case .history:
+           return "history"
+        case .horror:
+           return "horror"
+        case .music:
+           return "music"
+        case .mystery:
+           return "mystery"
+        case .romance:
+           return "romance"
+        case .scifi:
+           return "scifi"
+        case .tvMovie:
+           return "tvMovie"
+        case .thriller:
+           return "thriller"
+        case .war:
+           return "war"
+        case .western:
+           return "western"
+        }
+    }
+    
 }
 
 //Suplements to network calls, can be continued
