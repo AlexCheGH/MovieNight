@@ -55,7 +55,6 @@ class ShowManager {
                     let show = processRawShows(item, image: image)
                     
                     addShows(genre: genre?.getStringName(), show: show, type: type)
-                    print(show.title, show.poster)
                 }
             }
         }
@@ -83,27 +82,29 @@ class ShowManager {
         //name - for tv shows, title - for movies
         let title = shows?.name ?? shows?.title
         let description = shows?.overview
+        let id = shows?.id
         
         let show = MinimizedShow(title: title,
                                  description: description,
-                                 poster: image)
+                                 poster: image,
+                                 id: id)
         
         return show
     }
     
-   private func addShows(genre: String?, show: MinimizedShow, type: ShowType) {
+    private func addShows(genre: String?, show: MinimizedShow, type: ShowType) {
         let showCaterogy = ShowCategory(showList: [], genre: genre, type: type)
         //checks if the model already contains said showCategory
-       
-       var isModelMatchingParameters: Bool {
-           (model!.contains{
-               let genre = $0.genre == showCaterogy.genre
-               let type = $0.type == showCaterogy.type
-               
-               return genre && type
-           })
-       }
-       
+        
+        var isModelMatchingParameters: Bool {
+            (model!.contains{
+                let genre = $0.genre == showCaterogy.genre
+                let type = $0.type == showCaterogy.type
+                
+                return genre && type
+            })
+        }
+        
         if isModelMatchingParameters {
             let index = model?.firstIndex{
                 let isMatchingGenre = $0.genre == showCaterogy.genre
@@ -118,8 +119,8 @@ class ShowManager {
             showCaterogy.showList?.append(show)
             model?.append(showCaterogy)
         }
-       //send an update to refresh data
-       self.model = model
-       
+        //send an update to refresh data
+        self.model = model
+        
     }
 }

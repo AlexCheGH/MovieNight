@@ -51,6 +51,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         if (model.count > indexPath.section) {
             cell.configureCell(model: showManager.model?[indexPath.section].showList)
         }
+        cell.delegate = self
         return cell
     }
     
@@ -64,7 +65,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-         1
+        1
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -73,5 +74,14 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
             return model[section].category
         }
         return nil
+    }
+}
+
+
+extension ViewController: CollectionTableViewCellDelegate {
+    func onCellTap(show: MinimizedShow?) {
+        let vc = ViewControllerFactory.viewController(for: .detailedShow) as! DetailedShowInfoViewController
+        vc.show = show
+        present(vc, animated: true, completion: nil)
     }
 }

@@ -7,11 +7,17 @@
 
 import UIKit
 
+protocol CollectionTableViewCellDelegate {
+    func onCellTap(show: MinimizedShow?)
+}
+
 class CollectionTabeViewCell: UITableViewCell {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     var model: [MinimizedShow]?
+    var delegate: CollectionTableViewCellDelegate?
+    private var show: MinimizedShow?
     
     static let identifier = "CollectionTableViewCell"
     static func nib() -> UINib {
@@ -50,9 +56,9 @@ extension CollectionTabeViewCell: UICollectionViewDelegate, UICollectionViewData
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MovieCollectionViewCell.identifier, for: indexPath) as! MovieCollectionViewCell
         
-        let title = model?[indexPath.row].title
-        let image = model?[indexPath.row].poster
-        cell.configureCell(title: title, image: image)
+        let show = model?[indexPath.row]
+        cell.configureCell(show: show)
+        cell.delegate = self
         
         return cell
     }
@@ -64,4 +70,12 @@ extension CollectionTabeViewCell: UICollectionViewDelegate, UICollectionViewData
     }
     
     
+}
+
+extension CollectionTabeViewCell: MovieCollectionViewCellDelegate {
+    
+    func onCellTap(show: MinimizedShow?) {
+        self.show = show
+        delegate?.onCellTap(show: show)
+    }
 }

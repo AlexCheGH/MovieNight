@@ -31,13 +31,29 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="g39-B2-hYI" secondAttribute="trailing" id="xOj-pY-dq3"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Qxy-W0-afx"/>
                     <connections>
                         <outlet property="tableView" destination="g39-B2-hYI" id="Zel-4o-jEU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="128.98550724637681" y="82.366071428571431"/>
+            <point key="canvasLocation" x="870" y="82"/>
+        </scene>
+        <!--Detailed Show Info View Controller-->
+        <scene sceneID="vCy-50-SSk">
+            <objects>
+                <viewController storyboardIdentifier="DetailedShowInfoViewController" id="IrA-KF-24t" customClass="DetailedShowInfoViewController" customModule="MovieNight" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ISM-3o-db9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="79T-g1-h1q"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xFj-g4-9vT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1531.8840579710145" y="81.696428571428569"/>
         </scene>
     </scenes>
     <resources>

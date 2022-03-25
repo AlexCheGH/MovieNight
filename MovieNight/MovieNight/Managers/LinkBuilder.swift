@@ -62,6 +62,8 @@ class LinkBuilder {
 //images
 //https://developers.themoviedb.org/3/getting-started/images
 
+// https://www.youtube.com/watch?v= + key
+//https://developers.themoviedb.org/3/movies/get-movie-videos
 
 
 //Hardcoded values.

@@ -19,6 +19,7 @@
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mXJ-Dd-EkB">
                         <rect key="frame" x="10" y="20" width="514" height="404"/>
+                        <gestureRecognizers/>
                     </imageView>
                 </subviews>
             </view>
