@@ -15,9 +15,6 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="voK-31-KsG">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                </imageView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QtT-xX-1nn">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <subviews>
@@ -94,19 +91,14 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="QtT-xX-1nn" secondAttribute="trailing" id="7lU-cF-vtZ"/>
-                <constraint firstItem="voK-31-KsG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="JPm-tg-cMd"/>
                 <constraint firstItem="QtT-xX-1nn" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="MTZ-H3-7ac"/>
-                <constraint firstItem="voK-31-KsG" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="P2N-4Q-y4N"/>
-                <constraint firstAttribute="trailing" secondItem="voK-31-KsG" secondAttribute="trailing" id="QpZ-Ef-N6E"/>
                 <constraint firstItem="QtT-xX-1nn" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="fbc-ok-LoN"/>
                 <constraint firstAttribute="bottom" secondItem="QtT-xX-1nn" secondAttribute="bottom" id="kP7-pV-Cho"/>
-                <constraint firstAttribute="bottom" secondItem="voK-31-KsG" secondAttribute="bottom" id="vPk-ya-QLl"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="aboutTitle" destination="xO7-JN-NIU" id="sCM-Fe-5WK"/>
                 <outlet property="descriptionField" destination="YGo-W9-7Hu" id="8ze-Ag-27n"/>
-                <outlet property="imageView" destination="voK-31-KsG" id="RIg-Yf-zse"/>
                 <outlet property="title" destination="OjD-mj-Gr5" id="R5o-MK-uge"/>
                 <outlet property="webKitView" destination="7Z7-0a-mxQ" id="32F-d1-Er2"/>
             </connections>

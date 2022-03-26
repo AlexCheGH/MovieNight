@@ -170,7 +170,3 @@ enum Category: String {
 enum SortType: String {
     case popularity = "popularity.desc"
 }
-
-//https://api.themoviedb.org/3/tv/456/videos/api_key=d19b3992bf4330165e8410bb28467d3f
-//https://api.themoviedb.org/3/movie/414906/videos?api_key=d19b3992bf4330165e8410bb28467d3f
-//

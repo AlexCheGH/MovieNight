@@ -25,7 +25,7 @@ class DetailedShowInfoViewController: UIViewController {
     }
     
     func configureViewController(show: MinimizedShow?) {
-        self.model = show        
+        self.model = show
         manager.loadVideos(show: show)
     }
     
@@ -35,10 +35,6 @@ class DetailedShowInfoViewController: UIViewController {
             .sink(receiveValue: { link in
                 guard let link = link else { return }
                 self.webView.configureView(model: self.model, youTubeLink: link)
-                self.view.layoutSubviews()
-                print(link)
             })
     }
-    
-    
 }
