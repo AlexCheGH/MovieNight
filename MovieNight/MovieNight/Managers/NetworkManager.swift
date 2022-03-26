@@ -33,7 +33,7 @@ class ShowRequest {
     let url: URL
     
     init(type: ShowType, category: Category, genre: Genres?, language: Language, sort: SortType, pageNumber: Int) {
-        let link = LinkBuilder().makeLink(type: type, category: category, genre: genre, language: language, sort: sort, pageNumber: pageNumber)
+        let link = LinkBuilder().makeLinkForShow(type: type, category: category, genre: genre, language: language, sort: sort, pageNumber: pageNumber)
         self.url = URL(string: link)!
     }
     
@@ -77,3 +77,26 @@ extension PosterImageRequest: NetworkRequest {
     }
 }
 
+class VideoLinksRequest {
+    let url: URL
+    
+    init(type: ShowType, id: Int) {
+        let link = LinkBuilder().makeVideosLink(type: type, showID: id)
+        self.url = URL(string: link)!
+    }
+}
+
+extension VideoLinksRequest: NetworkRequest {
+    typealias ModelType = VideoLinks
+    
+    func decode(_ data: Data) -> VideoLinks? {
+        let decoder = JSONDecoder()
+        let links = try? decoder.decode(VideoLinks.self, from: data)
+        
+        return links
+    }
+    
+    func execute(withCompletion completion: @escaping (VideoLinks?) -> Void) {
+        makeRequest(url: url, completion: completion)
+    }
+}

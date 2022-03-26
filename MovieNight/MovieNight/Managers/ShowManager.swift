@@ -9,24 +9,6 @@ import Foundation
 import Combine
 import UIKit
 
-
-class ShowCategory {
-    
-    var showList: [MinimizedShow]?
-    let genre: String? //the category name
-    let type: ShowType?
-    var category: String? {
-        return (genre?.capitalizingFirstLetter() ?? "")  + " " + (type?.rawValue.capitalizingFirstLetter() ?? "")
-    }
-    
-    init(showList: [MinimizedShow]?, genre: String?, type: ShowType?) {
-        self.genre = genre
-        self.showList = showList
-        self.type = type
-    }
-    
-}
-
 class ShowManager {
     
     private var networkRequest: ShowRequest?
@@ -39,8 +21,10 @@ class ShowManager {
         .eraseToAnyPublisher()
     }
     
-    init() {
-        loadDefaultCollection()
+    init(loadDefaultContent: Bool = false) {
+        if loadDefaultContent {
+            loadDefaultCollection()
+        }
     }
     
     //MARK: - Network calls
@@ -52,9 +36,10 @@ class ShowManager {
             
             shows?.results?.forEach{ item in
                 loadImage(posterLink: item.posterPath ?? "") { image in
-                    let show = processRawShows(item, image: image)
-                    
+                    var show = processRawShows(item, image: image)
+                    show.showType = type
                     addShows(genre: genre?.getStringName(), show: show, type: type)
+                    
                 }
             }
         }

@@ -17,24 +17,25 @@ class DetailedMovieView: UIView {
     @IBOutlet weak var descriptionField: UITextView!
     
     private var model: MinimizedShow?
+//    private var youTubeLink: String = ""
     
-    func configureView(model: MinimizedShow?) {
+    func configureView(model: MinimizedShow?, youTubeLink: String) {
         self.model = model
         
-        configureWebView()
+        configureWebView(link: youTubeLink)
         configureImageView(image: model?.poster)
         configureTitle(text: model?.title)
         configureAboutLabel()
         configureTextField(text: model?.description)
     }
     
-    private func configureWebView() {
+    private func configureWebView(link: String) {
         let webConfiguration = WKWebViewConfiguration()
         webConfiguration.allowsInlineMediaPlayback = true
         
         DispatchQueue.main.async {
             
-            guard let videoURL = URL(string: "https://www.youtube.com/embed/YE7VzlLtp-4?playsinline=1") else { return }
+            guard let videoURL = URL(string: link) else { return }
             let request = URLRequest(url: videoURL)
             self.webKitView.load(request)
         }

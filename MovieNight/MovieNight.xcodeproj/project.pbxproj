@@ -28,6 +28,9 @@
 		A52CBB6327EBA0A200AAE018 /* MovieCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A52CBB6127EBA0A200AAE018 /* MovieCollectionViewCell.xib */; };
 		A58EC2A127EE2DA9007566DC /* DetailedMovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58EC2A027EE2DA9007566DC /* DetailedMovieView.swift */; };
 		A58EC2A327EE2E37007566DC /* DetailedMovieView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A58EC2A227EE2E37007566DC /* DetailedMovieView.xib */; };
+		A58EC2A527EE4DEC007566DC /* VideoRaw.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58EC2A427EE4DEC007566DC /* VideoRaw.swift */; };
+		A58EC2A727EE6659007566DC /* ShowCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58EC2A627EE6659007566DC /* ShowCategory.swift */; };
+		A58EC2A927EF1BFA007566DC /* DetailedShowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A58EC2A827EF1BFA007566DC /* DetailedShowManager.swift */; };
 		A59434BE27ECB0AF008B435E /* String+Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59434BD27ECB0AF008B435E /* String+Utility.swift */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +58,9 @@
 		A52CBB6127EBA0A200AAE018 /* MovieCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieCollectionViewCell.xib; sourceTree = "<group>"; };
 		A58EC2A027EE2DA9007566DC /* DetailedMovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedMovieView.swift; sourceTree = "<group>"; };
 		A58EC2A227EE2E37007566DC /* DetailedMovieView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailedMovieView.xib; sourceTree = "<group>"; };
+		A58EC2A427EE4DEC007566DC /* VideoRaw.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoRaw.swift; sourceTree = "<group>"; };
+		A58EC2A627EE6659007566DC /* ShowCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCategory.swift; sourceTree = "<group>"; };
+		A58EC2A827EF1BFA007566DC /* DetailedShowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedShowManager.swift; sourceTree = "<group>"; };
 		A59434BD27ECB0AF008B435E /* String+Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Utility.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,8 +114,10 @@
 			isa = PBXGroup;
 			children = (
 				50F4574427EA5AEC00CF9A99 /* ShowRaw.swift */,
+				A58EC2A627EE6659007566DC /* ShowCategory.swift */,
 				A52CBB5327EB2CED00AAE018 /* MinimizedShow.swift */,
 				50F4574A27EA628900CF9A99 /* ResultsRaw.swift */,
+				A58EC2A427EE4DEC007566DC /* VideoRaw.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -119,6 +127,7 @@
 			children = (
 				50F4574D27EA663000CF9A99 /* NetworkManager.swift */,
 				A52CBB5127EB19B600AAE018 /* ShowManager.swift */,
+				A58EC2A827EF1BFA007566DC /* DetailedShowManager.swift */,
 				50F4574F27EA67D900CF9A99 /* LinkBuilder.swift */,
 			);
 			path = Managers;
@@ -254,16 +263,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A58EC2A727EE6659007566DC /* ShowCategory.swift in Sources */,
 				A52CBB5E27EBA05B00AAE018 /* CollectionTabeViewCell.swift in Sources */,
 				A58EC2A127EE2DA9007566DC /* DetailedMovieView.swift in Sources */,
 				A50ACA8727ECFEEA0084E069 /* ViewControllerFactory.swift in Sources */,
 				A52CBB5227EB19B600AAE018 /* ShowManager.swift in Sources */,
 				50F4574E27EA663000CF9A99 /* NetworkManager.swift in Sources */,
+				A58EC2A927EF1BFA007566DC /* DetailedShowManager.swift in Sources */,
 				50F4574B27EA628900CF9A99 /* ResultsRaw.swift in Sources */,
 				50F4574527EA5AEC00CF9A99 /* ShowRaw.swift in Sources */,
 				50F4573227EA57D700CF9A99 /* ViewController.swift in Sources */,
 				50F4575027EA67D900CF9A99 /* LinkBuilder.swift in Sources */,
 				A52CBB5427EB2CED00AAE018 /* MinimizedShow.swift in Sources */,
+				A58EC2A527EE4DEC007566DC /* VideoRaw.swift in Sources */,
 				A50ACA8527ECFEBF0084E069 /* DetailedShowInfoViewController.swift in Sources */,
 				A52CBB6227EBA0A200AAE018 /* MovieCollectionViewCell.swift in Sources */,
 				50F4572E27EA57D700CF9A99 /* AppDelegate.swift in Sources */,

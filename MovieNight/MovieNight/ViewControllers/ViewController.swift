@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     
     private let cellHeight: CGFloat = 300
     
-    private let showManager = ShowManager()
+    private let showManager = ShowManager(loadDefaultContent: true)
     private var showSubscriber: AnyCancellable?
     private var categorySubscriber: AnyCancellable?
     
@@ -81,7 +81,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
 extension ViewController: CollectionTableViewCellDelegate {
     func onCellTap(show: MinimizedShow?) {
         let vc = ViewControllerFactory.viewController(for: .detailedShow) as! DetailedShowInfoViewController
-        vc.show = show
+        vc.configureViewController(show: show)
         present(vc, animated: true, completion: nil)
     }
 }

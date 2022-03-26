@@ -13,12 +13,16 @@ struct MinimizedShow {
     let description: String?
     var poster: UIImage?
     var id: Int?
+    var link: String?
+    var showType: ShowType?
     
-    init(title: String? = nil, description: String? = nil, poster: UIImage? = nil, id: Int? = nil) {
+    init(title: String? = nil, description: String? = nil, poster: UIImage? = nil, id: Int? = nil, link: String? = nil, showType: ShowType? = nil) {
         
         self.title = title
         self.description = description
         self.poster = poster
         self.id = id
+        self.link = link
+        self.showType = showType
     }
 }

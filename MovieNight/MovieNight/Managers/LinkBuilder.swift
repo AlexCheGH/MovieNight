@@ -12,6 +12,10 @@ class LinkBuilder {
     let networkProtocol = "https://"
     let showDomain = "api.themoviedb.org/3/"
     let posterDomain = "image.tmdb.org/t/p/w500"
+    let youtubeDomain = "youtube.com/embed/"
+    
+    //https://api.themoviedb.org/3/movie/414906/videos?api_key=d19b3992bf4330165e8410bb28467d3f&language=en-US
+    // https://api.themoviedb.org/3/tv/{tv_id}/videos?api_key=d19b3992bf4330165e8410bb28467d3f
     
     private static var apiKey: String {
         get {
@@ -28,8 +32,20 @@ class LinkBuilder {
         }
     }
     
+    func makeVideosLink(type: ShowType, showID: Int) -> String {        
+        let id = String(showID)
+        let finalLink = networkProtocol + showDomain + type.rawValue + "/" + id + "/videos" + "?api_key=\(LinkBuilder.apiKey)"
+        
+        return finalLink
+
+    }
     
-    func makeLink(type: ShowType, category: Category, genre: Genres? = nil, language: Language = .eng, sort: SortType, pageNumber: Int) -> String {
+    func linkForYoutube(key: String?) -> String {
+        guard let link = key else { return "" }
+        return networkProtocol + youtubeDomain + link + "?playsinline=1"
+    }
+    
+    func makeLinkForShow(type: ShowType, category: Category, genre: Genres? = nil, language: Language = .eng, sort: SortType, pageNumber: Int) -> String {
         
         let pageNumber = String(pageNumber)
         let genre = genre?.rawValue ?? ""
@@ -154,3 +170,7 @@ enum Category: String {
 enum SortType: String {
     case popularity = "popularity.desc"
 }
+
+//https://api.themoviedb.org/3/tv/456/videos/api_key=d19b3992bf4330165e8410bb28467d3f
+//https://api.themoviedb.org/3/movie/414906/videos?api_key=d19b3992bf4330165e8410bb28467d3f
+//
