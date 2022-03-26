@@ -155,8 +155,7 @@
 			children = (
 				A52CBB5B27EBA02D00AAE018 /* CollectionViewCell */,
 				A52CBB5A27EBA01B00AAE018 /* CollectionTableViewCell */,
-				A58EC2A027EE2DA9007566DC /* DetailedMovieView.swift */,
-				A58EC2A227EE2E37007566DC /* DetailedMovieView.xib */,
+				A58EC2AA27EF72C0007566DC /* DetailedMoviewView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -177,6 +176,15 @@
 				A52CBB6127EBA0A200AAE018 /* MovieCollectionViewCell.xib */,
 			);
 			path = CollectionViewCell;
+			sourceTree = "<group>";
+		};
+		A58EC2AA27EF72C0007566DC /* DetailedMoviewView */ = {
+			isa = PBXGroup;
+			children = (
+				A58EC2A027EE2DA9007566DC /* DetailedMovieView.swift */,
+				A58EC2A227EE2E37007566DC /* DetailedMovieView.xib */,
+			);
+			path = DetailedMoviewView;
 			sourceTree = "<group>";
 		};
 		A59434BC27ECB09A008B435E /* Utilities */ = {

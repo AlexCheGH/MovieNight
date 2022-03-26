@@ -14,9 +14,6 @@ class LinkBuilder {
     let posterDomain = "image.tmdb.org/t/p/w500"
     let youtubeDomain = "youtube.com/embed/"
     
-    //https://api.themoviedb.org/3/movie/414906/videos?api_key=d19b3992bf4330165e8410bb28467d3f&language=en-US
-    // https://api.themoviedb.org/3/tv/{tv_id}/videos?api_key=d19b3992bf4330165e8410bb28467d3f
-    
     private static var apiKey: String {
         get {
             // 1
@@ -32,7 +29,7 @@ class LinkBuilder {
         }
     }
     
-    func makeVideosLink(type: ShowType, showID: Int) -> String {        
+    func makeVideosLink(type: ShowType, showID: Int) -> String {
         let id = String(showID)
         let finalLink = networkProtocol + showDomain + type.rawValue + "/" + id + "/videos" + "?api_key=\(LinkBuilder.apiKey)"
         
@@ -68,19 +65,6 @@ class LinkBuilder {
     }
     
 }
-
-//Discover movies/series
-// https://developers.themoviedb.org/3/discover/movie-discover
-
-//popular movies/series
-// https://developers.themoviedb.org/3/movies/get-popular-movies
-
-//images
-//https://developers.themoviedb.org/3/getting-started/images
-
-// https://www.youtube.com/watch?v= + key
-//https://developers.themoviedb.org/3/movies/get-movie-videos
-
 
 //Hardcoded values.
 //TODO: change enum to network call.

@@ -77,6 +77,7 @@ extension PosterImageRequest: NetworkRequest {
     }
 }
 
+//sends request to get all the exiting video links for a show. It needs show id to make a call. Returns an array of links for further procession
 class VideoLinksRequest {
     let url: URL
     
